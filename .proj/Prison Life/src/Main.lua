@@ -31,7 +31,7 @@ end
 }
 
 local Eurus = loadstring(
-  game:HttpGet"https://raw.githubusercontent.com/LLethul/eurus/main/src/index.lua"
+  game:HttpGet"https://raw.githubusercontent.com/LLethul/Eurus/main/src/index.lua"
 )();
 
 local Blatant = loadstring(Funcs.GetFile("Blatant.lua"))

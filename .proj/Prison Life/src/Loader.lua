@@ -26,10 +26,11 @@ for hash, file in pairs(files) do
     local source = game:HttpGet(rootDir..file)
     local waitbruh = string.split(file,"/")
     waitbruh = waitbruh[#waitbruh]
-    print("Writing "..waitbruh.." to $WORKSPACE/ixhub/pl (...) ("..hash.." / "..#files..")")
+    print("Writing "..waitbruh.." to $WORKSPACE/ixhub/pl ("..hash.." / "..#files..")")
     writeFile(waitbruh, source)
 end
-
 if betterisfile('ixhub/pl/Main.lua') then
     loadstring(readfile('ixhub/pl/Main.lua'))
+else
+    error("Couldnt find main! Run this script again to retry.")
 end
