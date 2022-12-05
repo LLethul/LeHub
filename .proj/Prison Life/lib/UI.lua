@@ -65,3 +65,9 @@ coroutine.wrap(function()
 		end
 	end
 end)()
+
+return {
+	Notification = Notification;
+	ClientChat = ClientChat;
+	Chat = Chat;
+}

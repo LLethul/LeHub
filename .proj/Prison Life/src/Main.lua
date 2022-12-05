@@ -1,3 +1,4 @@
+local Players = game:GetService("Players")
 local betterisfile = function(file)
 	local suc, res = pcall(function() return readfile(file) end)
 	return suc and res ~= nil
@@ -18,7 +19,15 @@ local Funcs = {
     else
       return 'return 99'
     end
-  end
+  end;
+
+  FindPlayer = function(Text)
+    for _, Player in pairs(Players:GetPlayers()) do
+        if (Player.Name:lower():find(Text:lower()) or Player.DisplayName:lower():find(Text:lower())) then
+            return Player
+        end
+    end
+end
 }
 
 local Eurus = loadstring(
@@ -38,12 +47,20 @@ Eurus:SetScriptData({
   ScriptName = "IxHub | PrisonLife";
 });
 
-Eurus:AddCommand("kill", {
+UI.Notification("Loading commands..")
+
+Eurus:AddCommand("kill", 
+{
     --// Aliases
     "end"
-  }, {
+}, 
+{
     --// Command metadata
     Description = "Kill your enemies!"
-  }, function(Self, Args)
-    
-  end)
+}, function(Self, Args)
+  local Target = Funcs.FindPlayer(Args[1])
+  Blatant.Kill(Target)
+  UI.Notification("Killed "..Target.DisplayName.."!")
+end)
+
+UI.Notification("Commands loaded!")
