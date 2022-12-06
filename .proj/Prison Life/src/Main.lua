@@ -122,7 +122,7 @@ State.Loops.KillAura = game:GetService("RunService").RenderStepped:Connect(funct
 			local NoobChr = Noob.Character;
 			local MasterChr = AuraMaster.Character;
 
-			if (NoobChr.HumanoidRootPart.CFrame - MasterChr.HumanoidRootPart.CFrame).Magnitude >= 10 then
+			if (NoobChr.HumanoidRootPart.CFrame.p - MasterChr.HumanoidRootPart.CFrame.p).Magnitude >= 10 then
 				Blatant.MeleeKill(Noob)
 			end
 		end
