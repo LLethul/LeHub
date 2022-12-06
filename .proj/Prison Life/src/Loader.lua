@@ -29,6 +29,7 @@ for hash, file in pairs(files) do
     print("Writing "..waitbruh.." to $WORKSPACE/ixhub/pl ("..hash.." / "..#files..")")
     writeFile(waitbruh, source)
 end
+print('Loaded all files. Executing...')
 if betterisfile('ixhub/pl/Main.lua') then
     loadstring(readfile('ixhub/pl/Main.lua'))
 else
