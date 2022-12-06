@@ -76,8 +76,10 @@ getgenv().LHPLFuncs = {
 
 for i,v in pairs(data) do
   local f = cmdRawDir..v.path
+  print(f)
   local source = game:HttpGet(f)
-  source = loadstring(source)
+  print(source)
+  source = loadstring(source)()
   Eurus:AddCommand(source.info, source.run)
 end
 

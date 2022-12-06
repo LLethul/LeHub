@@ -50,6 +50,7 @@ end)
 
 coroutine.wrap(function()
 	if game.PlaceId == 155615604 then
+		repeat wait() until game.Players.LocalPlayer.PlayerGui.Home:FindFirstChild("fadeFrame")
 		local rs = game:GetService("RunService")
 		local fps
 		local ratio
