@@ -56,12 +56,6 @@ end
 
 UI.Notification("Loading commands..")
 
-local data = game:HttpGet(githubBaseCmdURL)
-print(data)
-data = HttpService:JSONDecode(data)
-data = data.tree;
-print(data[1].info.Name, data[2].info.Name)
-
 getgenv().LHPLFuncs = {
   Blatant = Blatant;
   UI = UI;
@@ -76,9 +70,16 @@ getgenv().LHPLFuncs = {
   end
 }
 
+local cmds = {
+	"kill",
+	"god",
+	"rejoin",
+	"tp",
+	"key"
+}
 
-for i,v in pairs(data) do
-  local f = cmdRawDir..v.path
+for i,v in pairs(cmds) do
+  local f = cmdRawDir..v..".lua"
   print(f)
   local source = game:HttpGet(f)
   print(source)
