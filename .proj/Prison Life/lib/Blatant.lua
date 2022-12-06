@@ -762,10 +762,11 @@ end
 local function MeleeKill(Player)
 	workspace.Remote.ItemHandler:InvokeServer(workspace["Prison_ITEMS"].single["Crude Knife"].ITEMPICKUP)
 	repeat wait() until LPlayer.Backpack:FindFirstChild("Crude Knife") or LPlayer.Character:FindFirstChild("Crude Knife")
+	local k = LPlayer.Backpack:FindFirstChild("Crude Knife") or LPlayer.Character:FindFirstChild("Crude Knife")
 	local tbl_main = 
 	{
       Player, 
-      LPlayer.Backpack["Crude Knife"]
+      k
 	}
 
 	for i=1,10 do
