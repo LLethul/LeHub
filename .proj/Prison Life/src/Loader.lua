@@ -23,11 +23,23 @@ function writeFile(name, src)
 end
 
 for hash, file in pairs(files) do
-    local source = game:HttpGet(rootDir..file)
+    --local source = game:HttpGet(rootDir..file)
     local waitbruh = string.split(file,"/")
     waitbruh = waitbruh[#waitbruh]
-    print("Writing "..waitbruh.." to $WORKSPACE/ixhub/pl ("..hash.." / "..#files..")")
-    writeFile(waitbruh, source)
+
+    if betterisfile("ixhub/pl/"..waitbruh) then
+        local source = game:HttpGet(rootDir..file)
+        if source ~= readfile("ixhub/pl/"..waitbruh) then
+            print("Writing "..waitbruh.." to $WORKSPACE/ixhub/pl ("..hash.." / "..#files..")")
+            writeFile(waitbruh, source)
+        else
+            print("File \""..waitbruh.."\" is up to date. Skipping..")
+        end
+    else
+        print("File \""..waitbruh.."\" does not exist. Fetching..")
+        local source = game:HttpGet(rootDir..file)
+        writeFile(waitbruh, source)
+    end
 end
 print('Loaded all files. Executing...')
 if betterisfile('ixhub/pl/Main.lua') then
