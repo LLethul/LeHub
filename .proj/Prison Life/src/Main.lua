@@ -27,7 +27,6 @@ local Funcs = {
             return Player
         end
     end
-  end
 end
 }
 
@@ -51,7 +50,7 @@ Eurus:SetScriptData({
 UI.Notification("Loading commands..")
 
 Eurus:AddCommand({
-  Name = "kill"
+  Name = "kill";
   argTypeList = {'player'}
 }, function(Self, Args)
   for i,v in pairs(Args[1]) do
