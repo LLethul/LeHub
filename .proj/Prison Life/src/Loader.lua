@@ -31,7 +31,17 @@ for hash, file in pairs(files) do
 end
 print('Loaded all files. Executing...')
 if betterisfile('ixhub/pl/Main.lua') then
-    loadstring(readfile('ixhub/pl/Main.lua'))
+    local s,e = pcall(function()
+        loadstring(readfile('ixhub/pl/Main.lua'))
+    end)
+
+    if s then
+        print("Exec success!")
+    else
+        error(
+            "Fail to exec Main.lua: "..e
+        )
+    end
 else
-    error("Couldnt find main! Run this script again to retry.")
+    error("Couldn't find main! Run this script again to retry.")
 end
