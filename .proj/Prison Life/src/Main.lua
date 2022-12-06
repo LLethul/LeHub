@@ -93,6 +93,7 @@ local cmds = {
 	"get",
 	"guns",
 	"unaura",
+	"crash",
 }
 
 for i,v in pairs(cmds) do
