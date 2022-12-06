@@ -88,7 +88,11 @@ local cmds = {
 	"god",
 	"rejoin",
 	"tp",
-	"key"
+	"key",
+	"aura",
+	"get",
+	"guns",
+	"unaura",
 }
 
 for i,v in pairs(cmds) do
