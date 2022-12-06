@@ -80,6 +80,18 @@ getgenv().LHPLFuncs = {
 
   GetState = function()
 	return State
+  end;
+  
+  AddCommand = function(src)
+	if src["info"] == nil then
+		return UI.Notification("Command is improperly formatted! Require info object.")
+	end
+
+	if src["run"] == nil then
+		return UI.Notification("Command is improperly formatted! Require run func.")
+	end
+	UI.Notification("Added command "..src.info.Name)
+	Eurus:AddCommand(src.info, src.run)
   end
 }
 
@@ -94,6 +106,9 @@ local cmds = {
 	"guns",
 	"unaura",
 	"crash",
+	"extcmd",
+	"team",
+	"bring",
 }
 
 for i,v in pairs(cmds) do

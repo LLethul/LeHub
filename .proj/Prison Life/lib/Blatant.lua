@@ -276,6 +276,10 @@ local function Teleport(Player, Position)
 end
 
 local function TeleportV(Player, Player2)
+	if Player2 == Players.LocalPlayer then
+		Teleport(Player, GetPos())
+		return
+	end
     if Player == Players.LocalPlayer then Goto(Player2) return end
 	if Player == nil or Player2 == nil then return end
 	local savedcf = GetPos()
@@ -763,14 +767,25 @@ local function MeleeKill(Player)
 	workspace.Remote.ItemHandler:InvokeServer(workspace["Prison_ITEMS"].single["Crude Knife"].ITEMPICKUP)
 	repeat wait() until LPlayer.Backpack:FindFirstChild("Crude Knife") or LPlayer.Character:FindFirstChild("Crude Knife")
 	local k = LPlayer.Backpack:FindFirstChild("Crude Knife") or LPlayer.Character:FindFirstChild("Crude Knife")
+	local swt = false
+	local st = GetTeam()
 	local tbl_main = 
 	{
       Player, 
       k
 	}
 
+	if LPlayer.TeamColor.Name == Player.TeamColor.Name then
+		TeamEvent(OppositeTeam(Player.TeamColor.Name));
+		swt = true;
+	end;
+
 	for i=1,10 do
 		ReplicatedStorage.meleeEvent:FireServer(unpack(tbl_main))
+	end
+
+	if swt then
+		TeamEvent(st)
 	end
 end
 
@@ -791,4 +806,5 @@ return {
 	Goto = Goto;
 	GiveItem = GiveItem;
 	TeamEvent = TeamEvent;
+	LoadChr = LoadChr;
 }
