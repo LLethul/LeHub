@@ -50,18 +50,13 @@ Eurus:SetScriptData({
 
 UI.Notification("Loading commands..")
 
-Eurus:AddCommand("kill", 
-{
-    --// Aliases
-    "end"
-}, 
-{
-    --// Command metadata
-    Description = "Kill your enemies!"
+Eurus:AddCommand({
+  Name = "kill"
+  argTypeList = {'player'}
 }, function(Self, Args)
-  local Target = Funcs.FindPlayer(Args[1])
-  Blatant.Kill(Target)
-  UI.Notification("Killed "..Target.DisplayName.."!")
+  for i,v in pairs(Args[1]) do
+    Blatant.Kill(v)
+  end
 end)
 
 UI.Notification("Commands loaded!")
