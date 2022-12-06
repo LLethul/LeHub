@@ -1,4 +1,5 @@
 local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local LPlayer = game.Players.LocalPlayer;
 local KillQueue = {}
 local function GetTeam()
@@ -768,7 +769,7 @@ local function MeleeKill(Player)
 	}
 
 	for i=1,10 do
-		Replic.meleeEvent:FireServer(unpack(tbl_main))
+		ReplicatedStorage.meleeEvent:FireServer(unpack(tbl_main))
 	end
 end
 
