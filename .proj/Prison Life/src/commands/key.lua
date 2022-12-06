@@ -1,6 +1,6 @@
 return {
     info = {
-        Name = "kill";
+        Name = "key";
         argTypeList = {"nil"};
     };
 
