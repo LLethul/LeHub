@@ -11,6 +11,7 @@ local LPlayer = Players.LocalPlayer
 local State = {
   Loops = {};
   Aura = {};
+  KAOn = false;
   God = false;
 }
 
@@ -67,6 +68,18 @@ getgenv().LHPLFuncs = {
   end;
   GetGod = function()
     return State.God
+  end;
+
+  SetAura = function(plr)
+	table.insert(State.Aura, plr)
+  end;
+
+  GetAura = function(plr)
+	return State.Aura[plr] ~= nil
+  end;
+
+  GetState = function()
+	return State
   end
 }
 
