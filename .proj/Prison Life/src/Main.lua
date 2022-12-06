@@ -57,8 +57,10 @@ end
 UI.Notification("Loading commands..")
 
 local data = game:HttpGet(githubBaseCmdURL)
+print(data)
 data = HttpService:JSONDecode(data)
 data = data.tree;
+print(data[1].info.Name, data[2].info.Name)
 
 getgenv().LHPLFuncs = {
   Blatant = Blatant;
@@ -73,6 +75,7 @@ getgenv().LHPLFuncs = {
     return State.God
   end
 }
+
 
 for i,v in pairs(data) do
   local f = cmdRawDir..v.path

@@ -32,7 +32,7 @@ end
 print('Loaded all files. Executing...')
 if betterisfile('ixhub/pl/Main.lua') then
     local s,e = pcall(function()
-        loadstring(readfile('ixhub/pl/Main.lua'))
+        loadstring(readfile('ixhub/pl/Main.lua'))()
     end)
 
     if s then
