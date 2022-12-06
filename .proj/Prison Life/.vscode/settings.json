@@ -3,6 +3,7 @@
         "readfile",
         "isfolder",
         "makefolder",
-        "writefile"
+        "writefile",
+        "getgenv"
     ]
 }

@@ -4,13 +4,13 @@ return {
         argTypeList = {"player"};
     };
 
-    run = function(Self, Args, Funcs)
+    run = function(Self, Args)
         for i,v in pairs(Args[1]) do
-            Funcs.Blatant.Kill(v)
-            if Self == Funcs.GetLP() then
-                Funcs.UI.Notification("Killed "..v.Name)
+            getgenv().LHPLFuncs.Blatant.Kill(v)
+            if Self == getgenv().Funcs.GetLP() then
+                getgenv().LHPLFuncs.UI.Notification("Killed "..v.Name)
             else
-                Funcs.UI.Chat("Killed "..v.Name, Self)
+                getgenv().LHPLFuncs.UI.Chat("Killed "..v.Name, Self)
             end
         end
     end

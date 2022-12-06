@@ -758,8 +758,23 @@ local function LagBeam(Player, Distance, Time)
 	end
 end
 
+local function MeleeKill(Player)
+	workspace.Remote.ItemHandler:InvokeServer(workspace["Prison_ITEMS"].single["Crude Knife"].ITEMPICKUP)
+	repeat wait() until LPlayer.Backpack:FindFirstChild("Crude Knife") or LPlayer.Character:FindFirstChild("Crude Knife")
+	local tbl_main = 
+	{
+      Player, 
+      LPlayer.Backpack["Crude Knife"]
+	}
+
+	for i=1,10 do
+		Replic.meleeEvent:FireServer(unpack(tbl_main))
+	end
+end
+
 return {
     Kill = Kill;
+	MeleeKill = MeleeKill;
     Arrest = Arrest;
     Tase = Tase;
     Teleport = TeleportV;
@@ -768,4 +783,10 @@ return {
 	Punish = Punish;
 	LagBeam = LagBeam;
 	Beam = Beam;
+	GetPos = GetPos;
+	GetTeam = GetTeam;
+	GetCamPos = GetCamPos;
+	Goto = Goto;
+	GiveItem = GiveItem;
+	TeamEvent = TeamEvent;
 }
