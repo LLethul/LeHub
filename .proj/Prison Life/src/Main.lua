@@ -1,6 +1,7 @@
 local DataStoreService = game:GetService("DataStoreService")
 local HttpService = game:GetService("HttpService")
 local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
 local betterisfile = function(file)
 	local suc, res = pcall(function() return readfile(file) end)
 	return suc and res ~= nil
@@ -11,6 +12,8 @@ local LPlayer = Players.LocalPlayer
 local State = {
   Loops = {};
   Aura = {};
+  Loopkill = {};
+  LKRead = {};
   KAOn = false;
   God = false;
 }
@@ -81,6 +84,10 @@ getgenv().LHPLFuncs = {
   GetState = function()
 	return State
   end;
+
+  ModState = function(k,v)
+	State[k] = v
+  end;
   
   AddCommand = function(src)
 	if src["info"] == nil then
@@ -142,6 +149,26 @@ State.Loops.KillAura = game:GetService("RunService").RenderStepped:Connect(funct
 				Blatant.MeleeKill(Noob)
 			end
 		end
+	end
+end)
+
+State.Loops.LoopkillSearchLoop = RunService.RenderStepped:Connect(function(deltaTime)
+	for i, Noob: Player in pairs(State.Loopkill) do
+		if State.LKRead[Noob.UserId] == true then
+			continue;
+		end
+
+		State.LKRead[Noob.UserId] = true;
+
+		Noob.CharacterAdded:Connect(function(c)
+			repeat wait() until Noob:HasAppearanceLoaded()
+			local ff = c:WaitForChild("ForceField", 2)
+			
+			if ff then
+				repeat wait() until c:FindFirstChildOfClass("ForceField") == nil
+				Blatant.Kill(Noob)
+			end
+		end)
 	end
 end)
 
