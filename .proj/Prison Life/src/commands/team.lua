@@ -7,9 +7,8 @@ return {
     run = function(Self, Args)
         local teams = {
             Inmate = "Bright orange";
-            Cop = "Really blue";
+            Cop = "Bright blue";
             Criminal = "Really red";
-            Neutral = "Medium stone grey";
             Prisoner = "Bright orange";
         }
 
@@ -19,8 +18,8 @@ return {
                     local oldting = getgenv().LHPLFuncs.Blatant.GetPos()
                     getgenv().LHPLFuncs.Blatant.LoadChr(teams.Inmate)
                     wait(0.1)
-                    getgenv().LHPLFuncs.Blatant.Goto(getgenv().LHPLFuncs.Blatant.CFrames["Criminal Base"])
-                    wait(0.1)
+                    getgenv().LHPLFuncs.Blatant.Goto(CFrame.new(-976.125183, 109.123924, 2059.99536))
+                    wait(0.3)
                     getgenv().LHPLFuncs.Blatant.Goto(oldting)
                     return
                 end
@@ -33,8 +32,8 @@ return {
         end
 
         local oldting = getgenv().LHPLFuncs.Blatant.GetPos()
-                getgenv().LHPLFuncs.Blatant.LoadChr("Medium stone grey")
-                wait(0.1)
-                getgenv().LHPLFuncs.Blatant.Goto(oldting)
+        getgenv().LHPLFuncs.Blatant.LoadChr("Medium stone grey")
+        wait(0.1)
+        getgenv().LHPLFuncs.Blatant.Goto(oldting)
     end
 }
