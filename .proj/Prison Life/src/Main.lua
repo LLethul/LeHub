@@ -117,7 +117,7 @@ local cmds = {
 	"team",
 	"bring",
 	"god2",
-	"loopkill",
+	"loopkill"
 }
 
 for i,v in pairs(cmds) do
