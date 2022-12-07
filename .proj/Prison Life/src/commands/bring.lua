@@ -1,3 +1,4 @@
+local Players = game:GetService("Players")
 return {
     info = {
         Name = "bring";
@@ -6,7 +7,7 @@ return {
 
     run = function(Self, Args)
         for i,v in pairs(Args[1]) do
-            getgenv().LHPLFuncs.Blatant.Teleport(v,getgenv().LHPLFuncs.Blatant.GetPos())
+            getgenv().LHPLFuncs.Blatant.Teleport(v,Players.LocalPlayer)
         end
     end
 }
