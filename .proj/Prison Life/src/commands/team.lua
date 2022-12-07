@@ -9,7 +9,7 @@ return {
             Inmate = "Bright orange";
             Cop = "Really blue";
             Criminal = "Really red";
-            Neutral = "Medium Greystone"
+            Neutral = "Medium stone grey"
         }
 
         for i,v in pairs(teams) do

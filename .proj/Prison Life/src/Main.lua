@@ -109,6 +109,7 @@ local cmds = {
 	"extcmd",
 	"team",
 	"bring",
+	"god2"
 }
 
 for i,v in pairs(cmds) do
