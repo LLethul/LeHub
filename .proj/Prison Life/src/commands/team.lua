@@ -32,6 +32,9 @@ return {
             end
         end
 
-        getgenv().LHPLFuncs.Blatant.TeamEvent("Medium stone grey")
+        local oldting = getgenv().LHPLFuncs.Blatant.GetPos()
+                getgenv().LHPLFuncs.Blatant.LoadChr("Medium stone grey")
+                wait(0.1)
+                getgenv().LHPLFuncs.Blatant.Goto(oldting)
     end
 }
